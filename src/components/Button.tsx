@@ -33,7 +33,7 @@ export default function Button({
     outline:
       "bg-transparent text-forest border-2 border-forest hover:bg-forest hover:text-cream",
     accent:
-      "bg-terracotta text-cream hover:bg-terracotta-dark border border-terracotta hover:border-terracotta-dark",
+      "bg-cream text-forest hover:bg-champagne border border-cream hover:border-champagne",
   };
 
   const sizes = {
