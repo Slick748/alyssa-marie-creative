@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+/* 
+ * Google Fonts are loaded in layout.tsx <head> for reliability
+ * - Playfair Display Italic: Logo
+ * - Cormorant Garamond: Headings
+ * - Inter: Body text
+ */
+
+/* Custom Theme Configuration for Tailwind v4 */
+@theme {
+  /* ========================================
+     COLOR PALETTE - Earth Tone "Paradise on Earth"
+     STRICTLY using only these 6 colors:
+     #6D8682, #88996E, #BDD19E, #B1C9CA, #E4D2C0, #B89068
+     ======================================== */
+  
+  /* The 6 Core Colors */
+  --color-dusty-teal: #6D8682;        /* Dark teal-gray */
+  --color-olive-sage: #88996E;        /* Olive green */
+  --color-light-sage: #BDD19E;        /* Light green */
+  --color-dusty-blue: #B1C9CA;        /* Soft blue */
+  --color-warm-beige: #E4D2C0;        /* Warm cream/beige */
+  --color-warm-tan: #B89068;          /* Caramel/tan accent */
+  
+  /* Mapped to site variables (using only the 6 colors) */
+  
+  /* Primary Sage Family */
+  --color-sage: #88996E;              /* Olive sage */
+  --color-sage-light: #BDD19E;        /* Light sage */
+  --color-sage-dark: #6D8682;         /* Dusty teal */
+  
+  /* Backgrounds */
+  --color-mint-cream: #E4D2C0;        /* Warm beige - main background */
+  --color-mint-light: #B1C9CA;        /* Dusty blue - alternate sections */
+  --color-mint: #BDD19E;              /* Light sage - card backgrounds */
+  
+  /* Deep Colors (buttons, footer, text) */
+  --color-forest: #6D8682;            /* Dusty teal - primary buttons */
+  --color-forest-light: #88996E;      /* Olive sage - button hover */
+  
+  /* Text Colors */
+  --color-charcoal: #6D8682;          /* Dusty teal - primary text */
+  --color-text-body: #6D8682;         /* Dusty teal - body text */
+  --color-text-muted: #88996E;        /* Olive sage - muted text */
+  
+  /* Accent Colors */
+  --color-terracotta: #B89068;        /* Warm tan - primary accent */
+  --color-terracotta-dark: #B89068;   /* Warm tan */
+  --color-gold: #B89068;              /* Warm tan */
+  --color-copper: #B89068;            /* Warm tan */
+  --color-blush: #E4D2C0;             /* Warm beige */
+  
+  /* Neutrals */
+  --color-cream: #E4D2C0;             /* Warm beige */
+  --color-warm-gray: #B1C9CA;         /* Dusty blue */
+  --color-stone: #E4D2C0;             /* Warm beige */
+
+  /* Legacy mappings for compatibility */
+  --color-olive-charcoal: #6D8682;
+  --color-soft-sand: #E4D2C0;
+  --color-warm-stone: #E4D2C0;
+  --color-taupe-gray: #88996E;
+  --color-eucalyptus: #88996E;
+  --color-champagne: #B89068;
+
+  /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-logo: 'Playfair Display', Georgia, serif;
+  
+  /* Responsive Font Sizes */
+  --font-size-hero: clamp(2.5rem, 5vw, 4rem);
+  --font-size-h1: clamp(2rem, 4vw, 3rem);
+  --font-size-h2: clamp(1.5rem, 3vw, 2.25rem);
+  --font-size-h3: clamp(1.25rem, 2.5vw, 1.75rem);
+  --font-size-h4: clamp(1.1rem, 2vw, 1.35rem);
+  --font-size-body: clamp(0.95rem, 1.5vw, 1.05rem);
+  --font-size-small: 0.875rem;
+  
+  /* Spacing */
+  --spacing-section: clamp(3rem, 8vw, 6rem);
+  --spacing-section-sm: clamp(2rem, 5vw, 4rem);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-warm-beige);
+  color: var(--color-dusty-teal);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-dusty-teal);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-h4); }
+
+p {
+  color: var(--color-dusty-teal);
+}
+
+a {
+  transition: color 0.2s ease;
+}
+
+::selection {
+  background-color: var(--color-olive-sage);
+  color: var(--color-warm-beige);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-warm-tan);
+  outline-offset: 2px;
+}
+
+img {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+img[data-loading="true"] {
+  opacity: 0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dusty-blue);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-olive-sage);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dusty-teal);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+.animate-slide-in-left { animation: slideInLeft 0.6s ease-out forwards; }
+.animate-slide-in-right { animation: slideInRight 0.6s ease-out forwards; }
+
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+
+/* Page Transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+/* Logo - Playfair Display, elegant and readable */
+.logo-condensed {
+  display: inline-block;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: normal;
+  font-weight: 400;
+  transform: scaleX(0.9) scaleY(1.2);
+  transform-origin: left center;
+}
+
+/* Logo Shimmer Effect - Using warm tan */
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.logo-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-dusty-teal) 0%,
+    var(--color-dusty-teal) 40%,
+    var(--color-warm-tan) 50%,
+    var(--color-dusty-teal) 60%,
+    var(--color-dusty-teal) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 7s ease-in-out infinite;
+}
+
+.logo-shimmer:hover {
+  -webkit-text-fill-color: var(--color-olive-sage);
+  background: none;
+}
